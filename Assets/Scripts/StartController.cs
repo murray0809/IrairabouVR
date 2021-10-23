@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartController : MonoBehaviour
 {
-    [SerializeField] GameObject m_startPos;
+    [SerializeField] GameObject startPos;
 
     void Start()
     {
@@ -13,14 +13,14 @@ public class StartController : MonoBehaviour
 
     void StartPos()
     {
-        m_startPos.GetComponent<Renderer>().material.color = Color.red;
+        startPos.GetComponent<Renderer>().material.color = Color.red;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Stick")
         {
-            m_startPos.GetComponent<Renderer>().material.color = Color.green;
+            startPos.GetComponent<Renderer>().material.color = Color.green;
         }
     }
 }
