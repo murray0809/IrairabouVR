@@ -5,6 +5,9 @@ using UnityEngine;
 public class StartController : MonoBehaviour
 {
     [SerializeField] GameObject startPos;
+    [SerializeField] GameObject stick;
+
+    float stickPosY;
 
     void Start()
     {
@@ -18,7 +21,12 @@ public class StartController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Stick")
+        stickPosY = stick.transform.position.y;
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Stick" && stickPosY > stick.transform.position.y)
         {
             startPos.GetComponent<Renderer>().material.color = Color.green;
         }
