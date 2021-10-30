@@ -3,38 +3,37 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-abstract public class BaseSerializeClass<T> where T : new() 
+abstract public class BaseSerializeClass<T> where T : new()
 {
-    string fileName;
+    protected string fileName => typeof(T).Name;
 
-    string filePass => $"{Application.persistentDataPath}/{fileName}.json";
+    protected string filePass => $"{Application.persistentDataPath}/{fileName}.json";
 
-    private T instans;
+    protected static T _instans;
 
-    public T Instans 
+    public static T Instans
     {
-        get {
-            if (instans == null)
+        get
+        {
+            if (_instans == null)
             {
-                instans = new T();
-                return instans;
+                _instans = new T();
+                return _instans;
             }
-            return instans;
+            return _instans;
         }
-        set {
-            instans = value;
+        set
+        {
+            _instans = value;
         }
     }
 
-    void Init(string filename)
-    {
-        fileName = filename;
-    }
+    
 
     public void Save()
     {
         var json = JsonUtility.ToJson(this);
-        using (var writer =  new StreamWriter(filePass,append:false))
+        using (var writer = new StreamWriter(filePass, append: false))
         {
             writer.Write(json);
             writer.Flush();
@@ -43,9 +42,19 @@ abstract public class BaseSerializeClass<T> where T : new()
 
     public void Load()
     {
-        using (var reader = new StreamReader(filePass))
+        try
         {
-            
+            using (var reader = new StreamReader(filePass))
+            {
+                var json = reader.ReadToEnd();
+                _instans = JsonUtility.FromJson<T>(json);
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+
+            Debug.LogError("notfindfile:errormessage:" + e.Message);
+            _instans = new T();
         }
     }
 }
