@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class StickController : MonoBehaviour
 {
-    [SerializeField] GameObject stick;
-    [SerializeField] GameObject rightController;
+    [SerializeField] GameObject m_stick;
+    [SerializeField] GameObject m_rightController;
 
-    [SerializeField] LineRenderer rayObject;
+    [SerializeField] LineRenderer m_rayObject;
 
     void Update()
     {
@@ -16,24 +16,24 @@ public class StickController : MonoBehaviour
 
     void Ray()
     {
-        rayObject.SetPosition(0, rightController.transform.position);
-        rayObject.SetPosition(1, rightController.transform.position + rightController.transform.forward * 2f);
+        m_rayObject.SetPosition(0, m_rightController.transform.position);
+        m_rayObject.SetPosition(1, m_rightController.transform.position + m_rightController.transform.forward * 2f);
 
-        rayObject.startWidth = 0.01f;
-        rayObject.endWidth = 0.01f;
+        m_rayObject.startWidth = 0.01f;
+        m_rayObject.endWidth = 0.01f;
 
-        stick.transform.position = Vector3.Lerp(rightController.transform.position,
-            rightController.transform.position + rightController.transform.forward * 2f, 0.5f);
+        m_stick.transform.position = Vector3.Lerp(m_rightController.transform.position,
+            m_rightController.transform.position + m_rightController.transform.forward * 2f, 0.5f);
 
         StickRotation();
     }
 
     void StickRotation()
     {
-        Transform controllerTransform = rightController.transform;
+        Transform controllerTransform = m_rightController.transform;
 
-        stick.transform.rotation = controllerTransform.transform.rotation;
+        m_stick.transform.rotation = controllerTransform.transform.rotation;
 
-        stick.transform.Rotate(new Vector3(1, 0, 0), 90);
+        m_stick.transform.Rotate(new Vector3(1, 0, 0), 90);
     }
 }
