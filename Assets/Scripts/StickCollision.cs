@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class StickCollision : MonoBehaviour
 {
-    [SerializeField] GameObject m_stick;
+    [SerializeField] GameObject stick;
 
     bool test = false;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -25,7 +20,7 @@ public class StickCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall" && test)
         {
-            m_stick.GetComponent<Renderer>().material.color = Color.red;
+            stick.GetComponent<Renderer>().material.color = Color.red;
         }
     }
 }

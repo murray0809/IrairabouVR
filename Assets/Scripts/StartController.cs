@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class StartController : MonoBehaviour
 {
-    [SerializeField] GameObject m_startPos;
+    [SerializeField] GameObject startPos;
+    [SerializeField] GameObject stick;
+
+    float stickPosY;
 
     void Start()
     {
@@ -13,14 +16,19 @@ public class StartController : MonoBehaviour
 
     void StartPos()
     {
-        m_startPos.GetComponent<Renderer>().material.color = Color.red;
+        startPos.GetComponent<Renderer>().material.color = Color.red;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Stick")
+        stickPosY = stick.transform.position.y;
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Stick" && stickPosY > stick.transform.position.y)
         {
-            m_startPos.GetComponent<Renderer>().material.color = Color.green;
+            startPos.GetComponent<Renderer>().material.color = Color.green;
         }
     }
 }
