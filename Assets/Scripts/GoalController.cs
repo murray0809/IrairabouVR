@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GoalController : MonoBehaviour
 {
-    [SerializeField] GameObject m_goalPos;
+    [SerializeField] GameObject goalPos;
+
+    [SerializeField] StartController start;
 
     void Start()
     {
@@ -13,14 +15,14 @@ public class GoalController : MonoBehaviour
 
     void GoalPos()
     {
-        m_goalPos.GetComponent<Renderer>().material.color = Color.red;
+        goalPos.GetComponent<Renderer>().material.color = Color.red;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Stick")
+        if (collision.gameObject.tag == "Stick" && start.Started)
         {
-            m_goalPos.GetComponent<Renderer>().material.color = Color.green;
+            goalPos.GetComponent<Renderer>().material.color = Color.green;
         }
     }
 }
