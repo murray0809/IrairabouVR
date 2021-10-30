@@ -6,21 +6,24 @@ public class StickCollision : MonoBehaviour
 {
     [SerializeField] GameObject stick;
 
-    bool test = false;
-
-    void Update()
-    {
-        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
-        {
-            test = true;
-        }
-    }
+    [SerializeField] StartController start;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Wall" && test)
+        if (collision.gameObject.tag == "Wall" && start.Started)
         {
             stick.GetComponent<Renderer>().material.color = Color.red;
+
+            StartCoroutine(Vivration(5f));
         }
+    }
+
+    IEnumerator Vivration(float time)
+    {
+        OVRInput.SetControllerVibration(1, 1, OVRInput.Controller.RTouch);
+
+        yield return new WaitForSeconds(time);
+
+        OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
     }
 }

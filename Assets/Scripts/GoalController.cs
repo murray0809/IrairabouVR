@@ -6,6 +6,8 @@ public class GoalController : MonoBehaviour
 {
     [SerializeField] GameObject goalPos;
 
+    [SerializeField] StartController start;
+
     void Start()
     {
         GoalPos();
@@ -18,7 +20,7 @@ public class GoalController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Stick")
+        if (collision.gameObject.tag == "Stick" && start.Started)
         {
             goalPos.GetComponent<Renderer>().material.color = Color.green;
         }

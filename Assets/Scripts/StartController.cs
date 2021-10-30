@@ -7,7 +7,10 @@ public class StartController : MonoBehaviour
     [SerializeField] GameObject startPos;
     [SerializeField] GameObject stick;
 
-    float stickPosY;
+    private float stickPosY;
+
+    private bool started = false;
+    public bool Started { get { return started; } }
 
     void Start()
     {
@@ -29,6 +32,7 @@ public class StartController : MonoBehaviour
         if (collision.gameObject.tag == "Stick" && stickPosY > stick.transform.position.y)
         {
             startPos.GetComponent<Renderer>().material.color = Color.green;
+            started = true;
         }
     }
 }
