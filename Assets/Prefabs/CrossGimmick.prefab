@@ -546,10 +546,8 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges:
-  - a: 0
-    b: 0
-  m_SelectedVertices: 0000000000000000
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &7686235339239591427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,4 +652,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a86dfa0f51aa94797b8741e0fbadd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationVec: {x: 0, y: 0, z: 10}
+  rotationVec: {x: 0, y: 0.5, z: 0}
