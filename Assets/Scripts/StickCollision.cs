@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class StickCollision : MonoBehaviour
 {
-    [SerializeField] GameObject stick;
+    [SerializeField] GameObject m_stick;
 
-    [SerializeField] StartController start;
+    bool test = false;
 
-    private void OnCollisionEnter(Collision collision)
+    void Start()
     {
-        if (collision.gameObject.tag == "Wall" && start.Started)
-        {
-            stick.GetComponent<Renderer>().material.color = Color.red;
+        
+    }
 
-            StartCoroutine(Vivration(5f));
+    void Update()
+    {
+        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+        {
+            test = true;
         }
     }
 
-    IEnumerator Vivration(float time)
+    private void OnCollisionEnter(Collision collision)
     {
-        OVRInput.SetControllerVibration(1, 1, OVRInput.Controller.RTouch);
-
-        yield return new WaitForSeconds(time);
-
-        OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
+        if (collision.gameObject.tag == "Wall" && test)
+        {
+            m_stick.GetComponent<Renderer>().material.color = Color.red;
+        }
     }
 }
