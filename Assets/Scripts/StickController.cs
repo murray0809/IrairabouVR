@@ -7,21 +7,23 @@ public class StickController : MonoBehaviour
     [SerializeField] GameObject stick;
     [SerializeField] GameObject rightController;
 
-    [SerializeField] LineRenderer rayObject;
+    [SerializeField] RetryController retryController;
 
     void Update()
     {
         Ray();
+        if (retryController.IsRetry)
+        {
+            stick.SetActive(false);
+        }
+        else
+        {
+            stick.SetActive(true);
+        }
     }
 
     void Ray()
     {
-        rayObject.SetPosition(0, rightController.transform.position);
-        rayObject.SetPosition(1, rightController.transform.position + rightController.transform.forward * 2f);
-
-        rayObject.startWidth = 0.01f;
-        rayObject.endWidth = 0.01f;
-
         stick.transform.position = Vector3.Lerp(rightController.transform.position,
             rightController.transform.position + rightController.transform.forward * 2f, 0.5f);
 
