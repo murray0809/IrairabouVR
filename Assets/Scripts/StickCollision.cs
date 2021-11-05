@@ -8,6 +8,8 @@ public class StickCollision : MonoBehaviour
 
     [SerializeField] StartController start;
 
+    [SerializeField] RetryController retryController;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Wall" && start.Started)
@@ -15,6 +17,8 @@ public class StickCollision : MonoBehaviour
             stick.GetComponent<Renderer>().material.color = Color.red;
 
             StartCoroutine(Vivration(5f));
+
+            retryController.ViewRetryUI();
         }
     }
 
