@@ -653,12 +653,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVec: {x: 0, y: 0.5, z: 0}
-  MoveTimer: 1
-  RoundTripSpan: 2
-  StartMoveX: 5
-  StartMoveY: 0
-  StartMoveZ: 0
-  EndMoveX: 0
-  EndMoveY: 0
-  EndMoveZ: 0
+  T: 1
+  F: 1
+  isRotate: 1
   isMove: 1
+  isMoveDirection: 010000
