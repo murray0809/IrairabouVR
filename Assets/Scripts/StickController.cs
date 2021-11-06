@@ -9,14 +9,17 @@ public class StickController : MonoBehaviour
 
     [SerializeField] RetryController retryController;
 
+    [SerializeField] GoalController goalController;
+
     void Update()
     {
         Ray();
-        if (retryController.IsRetry)
+
+        if (retryController.IsRetry || goalController.IsGool)
         {
             stick.SetActive(false);
         }
-        else
+        else if(!retryController.IsRetry || !goalController.IsGool)
         {
             stick.SetActive(true);
         }
