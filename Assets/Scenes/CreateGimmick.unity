@@ -531,6 +531,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: isMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: isMoveX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: isMoveY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: isMoveZ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: MoveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: moveSpeed.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: gimmickPos.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: positionVec.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: GimmickPosClampX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: gimmickPosClamp.x
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 503194088, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
+      propertyPath: positionLimitVec.x
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7686235339239591425, guid: f3c1777217b13944dae7055af1b0bdc2, type: 3}
       propertyPath: m_RootOrder
       value: 2
