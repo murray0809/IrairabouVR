@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GoalController : MonoBehaviour
 {
@@ -8,9 +10,24 @@ public class GoalController : MonoBehaviour
 
     [SerializeField] StartController start;
 
+    [SerializeField] RetryController retryController;
+
+    [SerializeField] Button registButton;
+
+    [SerializeField] Button cancelButton;
+
+    [SerializeField] string nextSceneName;
+
+    private bool isGool = false;
+    public bool IsGool { get { return isGool; } }
+
+    const string titleScene = "Title";
+
     void Start()
     {
         GoalPos();
+        registButton.onClick.AddListener(OnPushRegistButton);
+        cancelButton.onClick.AddListener(OnPushCancelButton);
     }
 
     void GoalPos()
@@ -22,7 +39,19 @@ public class GoalController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Stick" && start.Started)
         {
+            isGool = true;
             goalPos.GetComponent<Renderer>().material.color = Color.green;
+            retryController.ViewClearUI();
         }
+    }
+
+    void OnPushRegistButton()
+    {
+        SceneManager.LoadScene(nextSceneName);
+    }
+
+    void OnPushCancelButton()
+    {
+        SceneManager.LoadScene(titleScene);
     }
 }
