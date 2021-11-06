@@ -8296,6 +8296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   retryUI: {fileID: 662669107}
   retryButton: {fileID: 1229786806}
+  nextSceneName: ProtoType
 --- !u!1 &1737540131
 GameObject:
   m_ObjectHideFlags: 0

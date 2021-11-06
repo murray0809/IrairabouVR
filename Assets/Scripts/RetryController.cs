@@ -10,6 +10,8 @@ public class RetryController : MonoBehaviour
 
     [SerializeField] Button retryButton;
 
+    [SerializeField] string nextSceneName;
+
     private bool isRetry = false;
     public bool IsRetry { get { return isRetry; } }
 
@@ -22,7 +24,7 @@ public class RetryController : MonoBehaviour
 
     void OnPushRetryButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(nextSceneName);
     }
 
     public void ViewRetryUI()
