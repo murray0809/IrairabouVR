@@ -23,6 +23,8 @@ public class RetryController : MonoBehaviour
     private bool isRetry = false;
     public bool IsRetry { get { return isRetry; } }
 
+    [SerializeField] OVRScreenFade fade;
+
     void Start()
     {
         isRetry = false;
@@ -33,12 +35,30 @@ public class RetryController : MonoBehaviour
 
     void OnPushRetryButton()
     {
-        SceneManager.LoadScene(nextSceneName);
+        fade.FadeOut();
+
+        StartCoroutine(MoveScene());
     }
 
     void OnPushCancelButton()
     {
+        fade.FadeOut();
+
+        StartCoroutine(MoveTitleScene());
+    }
+
+    IEnumerator MoveTitleScene()
+    {
+        yield return new WaitForSeconds(fade.fadeTime);
+
         SceneManager.LoadScene(titleScene);
+    }
+
+    IEnumerator MoveScene()
+    {
+        yield return new WaitForSeconds(fade.fadeTime);
+
+        SceneManager.LoadScene(nextSceneName);
     }
 
     public void ViewRetryUI()

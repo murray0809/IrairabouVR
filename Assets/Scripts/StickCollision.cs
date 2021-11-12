@@ -10,15 +10,17 @@ public class StickCollision : MonoBehaviour
 
     [SerializeField] RetryController retryController;
 
+    [SerializeField] float viveTime;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Wall" && start.Started)
         {
             stick.GetComponent<Renderer>().material.color = Color.red;
 
-            StartCoroutine(Vivration(5f));
+            StartCoroutine(Vivration(viveTime));
 
-            retryController.ViewRetryUI();
+            StartCoroutine(ViewUI(2f));
         }
     }
 
@@ -30,4 +32,12 @@ public class StickCollision : MonoBehaviour
 
         OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
     }
+
+    IEnumerator ViewUI(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        retryController.ViewRetryUI();
+    }
+
 }

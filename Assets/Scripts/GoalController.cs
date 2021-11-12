@@ -23,6 +23,8 @@ public class GoalController : MonoBehaviour
 
     const string titleScene = "Title";
 
+    [SerializeField] OVRScreenFade fade;
+
     void Start()
     {
         GoalPos();
@@ -52,6 +54,15 @@ public class GoalController : MonoBehaviour
 
     void OnPushCancelButton()
     {
+        fade.FadeOut();
+
+        StartCoroutine(MoveTitleScene());
+    }
+
+    IEnumerator MoveTitleScene()
+    {
+        yield return new WaitForSeconds(fade.fadeTime);
+
         SceneManager.LoadScene(titleScene);
     }
 }
