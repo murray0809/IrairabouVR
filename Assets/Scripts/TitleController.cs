@@ -15,11 +15,6 @@ public class TitleController : MonoBehaviour
         startButton.onClick.AddListener(PushStartButton);
     }
 
-    void Update()
-    {
-        
-    }
-
     void PushStartButton()
     {
         SceneManager.LoadScene(nextSceneName);
