@@ -64,3 +64,9 @@ Packages/manifest.json
 Packages/packages-lock.json
 Assets/Oculus.meta
 Assets/Oculus/
+Assets/Plugins/
+Assets/Resources/DOTweenSettings.asset
+Assets/Resources/DOTweenSettings.asset.meta
+Assets/Scenes/TestScene.unity
+Assets/Scenes/TestScene.unity.meta
+Assets/Plugins.meta
