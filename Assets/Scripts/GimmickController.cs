@@ -7,16 +7,22 @@ public class GimmickController : MonoBehaviour
     /// <summary> ‰ñ“]‚³‚¹‚é‚½‚ß‚Ì’l‚Ì•Ï” </summary>
     [Header("‰ñ“]‚³‚¹‚é‚½‚ß‚Ì’l")]
     [SerializeField] private Vector3 rotationVec;
+    /// <summary> U•‚·‚é‘¬‚³‚Ì•Ï” </summary>
     [Header("U•‚·‚é‘¬‚³")]
     [SerializeField] private float AmplitudeSpeed;
+    /// <summary> X²•ûŒü‚ÉˆÚ“®‚·‚éU•‚Ì•Ï” </summary>
     [Header("X²•ûŒü‚ÉˆÚ“®‚·‚éU•")]
     [SerializeField] private float AmplitudeX;
+    /// <summary> Y²•ûŒü‚ÉˆÚ“®‚·‚éU•‚Ì•Ï” </summary>
     [Header("Y²•ûŒü‚ÉˆÚ“®‚·‚éU•")]
     [SerializeField] private float AmplitudeY;
+    /// <summary> Z²•ûŒü‚ÉˆÚ“®‚·‚éU•‚Ì•Ï” </summary>
     [Header("Z²•ûŒü‚ÉˆÚ“®‚·‚éU•")]
     [SerializeField] private float AmplitudeZ;
+    /// <summary> ‰ñ“]‚³‚¹‚é‚©‚Ìƒtƒ‰ƒO‚Ì•Ï” </summary>
     [Header("‰ñ“]‚³‚¹‚é‚©‚Ìƒtƒ‰ƒO")]
     public bool isRotate = false;
+    /// <summary> ˆÚ“®‚³‚¹‚é‚©‚Ìƒtƒ‰ƒO‚Ì•Ï” </summary>
     [Header("ˆÚ“®‚³‚¹‚é‚©‚Ìƒtƒ‰ƒO")]
     public bool isMove = false;
 

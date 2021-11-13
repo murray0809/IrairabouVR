@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 7686235339239591426}
   - component: {fileID: 7686235339239591427}
   - component: {fileID: 7686235339239591428}
+  - component: {fileID: 4789734814673181153}
   - component: {fileID: 7686235339239591429}
-  - component: {fileID: 7686235339239591430}
   - component: {fileID: 503194088}
+  - component: {fileID: 5852379820546541129}
   m_Layer: 0
   m_Name: CrossGimmick
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
   m_IsActive: 1
@@ -584,7 +585,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7686235339239591431}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -596,7 +597,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: bbb235fff4f48426b863b36058ab66d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -618,15 +619,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &7686235339239591429
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7686235339239591431}
-  m_Mesh: {fileID: 0}
---- !u!64 &7686235339239591430
+--- !u!64 &4789734814673181153
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -639,6 +632,14 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!33 &7686235339239591429
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686235339239591431}
   m_Mesh: {fileID: 0}
 --- !u!114 &503194088
 MonoBehaviour:
@@ -653,8 +654,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVec: {x: 0, y: 0.5, z: 0}
-  T: 1
-  F: 1
+  AmplitudeSpeed: 0
+  AmplitudeX: 0
+  AmplitudeY: 0
+  AmplitudeZ: 0
   isRotate: 1
   isMove: 1
-  isMoveDirection: 010000
+--- !u!114 &5852379820546541129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686235339239591431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57444c075000242ea99e263cee940de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manageVisibility: 1
