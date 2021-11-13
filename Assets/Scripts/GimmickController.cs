@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateGimmickController : MonoBehaviour
+public class GimmickController : MonoBehaviour
 {
     /// <summary> ‰ñ“]‚³‚¹‚é‚½‚ß‚Ì’l‚Ì•Ï” </summary>
     [Header("‰ñ“]‚³‚¹‚é‚½‚ß‚Ì’l")]
