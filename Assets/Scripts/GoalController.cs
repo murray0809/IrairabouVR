@@ -44,6 +44,7 @@ public class GoalController : MonoBehaviour
             isGool = true;
             goalPos.GetComponent<Renderer>().material.color = Color.green;
             retryController.ViewClearUI();
+            FindObjectOfType<TimeCounter>().StopTimer();
         }
     }
 

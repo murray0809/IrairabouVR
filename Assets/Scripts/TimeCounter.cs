@@ -20,12 +20,15 @@ public class TimeCounter : MonoBehaviour
 
     public void StartTimer()
     {
+        if (timer.isTimeCounted) return;
       coroutine = StartCoroutine(timer.TimeCounte());
+        timer.isTimeCounted = true;
     }
 
     public void StopTimer()
     {
         StopCoroutine(coroutine);
+        timer.isTimeCounted = false;
     }
 
     public void ResetTimer()
@@ -35,7 +38,7 @@ public class TimeCounter : MonoBehaviour
 
     private void Update()
     {
-        text.text = timer.CountTime.ToString();
+        text.text = timer.CountTime.ToString("0.00");
     }
 }
 
@@ -46,9 +49,11 @@ public class Timer
 
     public float CountTime => time;
 
+    public bool isTimeCounted;
     public Timer()
     {
         time = 0;
+        isTimeCounted = false;
     }
 
     /// <summary>
