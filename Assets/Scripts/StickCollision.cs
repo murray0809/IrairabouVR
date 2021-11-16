@@ -21,6 +21,8 @@ public class StickCollision : MonoBehaviour
             StartCoroutine(Vivration(viveTime));
 
             StartCoroutine(ViewUI(2f));
+
+            FindObjectOfType<TimeCounter>().StopTimer();
         }
     }
 
