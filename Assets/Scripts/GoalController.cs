@@ -18,6 +18,8 @@ public class GoalController : MonoBehaviour
 
     [SerializeField] string nextSceneName;
 
+    [SerializeField] Text clearText;
+
     private bool isGool = false;
     public bool IsGool { get { return isGool; } }
 
@@ -45,6 +47,7 @@ public class GoalController : MonoBehaviour
             goalPos.GetComponent<Renderer>().material.color = Color.green;
             retryController.ViewClearUI();
             FindObjectOfType<TimeCounter>().StopTimer();
+            clearText.text = "Clear\n" + FindObjectOfType<TimeCounter>().timer.CountTime.ToString("0.00");
         }
     }
 
