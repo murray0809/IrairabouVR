@@ -4,36 +4,41 @@ using UnityEngine;
 
 public class StickController : MonoBehaviour
 {
-    [SerializeField] GameObject m_stick;
-    [SerializeField] GameObject m_rightController;
+    [SerializeField] GameObject stick;
+    [SerializeField] GameObject rightController;
 
-    [SerializeField] LineRenderer m_rayObject;
+    [SerializeField] RetryController retryController;
+
+    [SerializeField] GoalController goalController;
 
     void Update()
     {
         Ray();
+
+        if (retryController.IsRetry || goalController.IsGool)
+        {
+            stick.SetActive(false);
+        }
+        else if(!retryController.IsRetry || !goalController.IsGool)
+        {
+            stick.SetActive(true);
+        }
     }
 
     void Ray()
     {
-        m_rayObject.SetPosition(0, m_rightController.transform.position);
-        m_rayObject.SetPosition(1, m_rightController.transform.position + m_rightController.transform.forward * 2f);
-
-        m_rayObject.startWidth = 0.01f;
-        m_rayObject.endWidth = 0.01f;
-
-        m_stick.transform.position = Vector3.Lerp(m_rightController.transform.position,
-            m_rightController.transform.position + m_rightController.transform.forward * 2f, 0.5f);
+        stick.transform.position = Vector3.Lerp(rightController.transform.position,
+            rightController.transform.position + rightController.transform.forward * 2f, 0.5f);
 
         StickRotation();
     }
 
     void StickRotation()
     {
-        Transform controllerTransform = m_rightController.transform;
+        Transform controllerTransform = rightController.transform;
 
-        m_stick.transform.rotation = controllerTransform.transform.rotation;
+        stick.transform.rotation = controllerTransform.transform.rotation;
 
-        m_stick.transform.Rotate(new Vector3(1, 0, 0), 90);
+        stick.transform.Rotate(new Vector3(1, 0, 0), 90);
     }
 }
