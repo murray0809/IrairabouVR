@@ -47,7 +47,7 @@ public class GoalController : MonoBehaviour
             goalPos.GetComponent<Renderer>().material.color = Color.green;
             retryController.ViewClearUI();
             FindObjectOfType<TimeCounter>().StopTimer();
-            clearText.text = "Clear\n" + FindObjectOfType<TimeCounter>().timer.CountTime.ToString("0.00");
+            clearText.text = "Clear\n" + Timer.CountTime.ToString("0.00");
         }
     }
 

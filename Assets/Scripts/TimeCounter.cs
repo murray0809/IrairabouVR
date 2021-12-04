@@ -38,16 +38,16 @@ public class TimeCounter : MonoBehaviour
 
     private void Update()
     {
-        text.text = timer.CountTime.ToString("0.00");
+        text.text = Timer.CountTime.ToString("0.00");
     }
 }
 
 
 public class Timer
 {
-    float time;
+    static float time;
 
-    public float CountTime => time;
+    static public float CountTime => time;
 
     public bool isTimeCounted;
     public Timer()
