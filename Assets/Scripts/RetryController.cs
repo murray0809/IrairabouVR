@@ -25,54 +25,54 @@ public class RetryController : MonoBehaviour
 
     [SerializeField] OVRScreenFade fade;
 
-    void Start()
-    {
-        isRetry = false;
-        retryButton.onClick.AddListener(OnPushRetryButton);
-        cancelButton.onClick.AddListener(OnPushCancelButton);
-        retryCanvas.SetActive(false);
-    }
+    //void Start()
+    //{
+    //    isRetry = false;
+    //    retryButton.onClick.AddListener(OnPushRetryButton);
+    //    cancelButton.onClick.AddListener(OnPushCancelButton);
+    //    retryCanvas.SetActive(false);
+    //}
 
-    void OnPushRetryButton()
-    {
-        fade.FadeOut();
+    //void OnPushRetryButton()
+    //{
+    //    fade.FadeOut();
 
-        StartCoroutine(MoveScene());
-    }
+    //    StartCoroutine(MoveScene());
+    //}
 
-    void OnPushCancelButton()
-    {
-        fade.FadeOut();
+    //void OnPushCancelButton()
+    //{
+    //    fade.FadeOut();
 
-        StartCoroutine(MoveTitleScene());
-    }
+    //    StartCoroutine(MoveTitleScene());
+    //}
 
-    IEnumerator MoveTitleScene()
-    {
-        yield return new WaitForSeconds(fade.fadeTime);
+    //IEnumerator MoveTitleScene()
+    //{
+    //    yield return new WaitForSeconds(fade.fadeTime);
 
-        SceneManager.LoadScene(titleScene);
-    }
+    //    SceneManager.LoadScene(titleScene);
+    //}
 
-    IEnumerator MoveScene()
-    {
-        yield return new WaitForSeconds(fade.fadeTime);
+    //IEnumerator MoveScene()
+    //{
+    //    yield return new WaitForSeconds(fade.fadeTime);
 
-        SceneManager.LoadScene(nextSceneName);
-    }
+    //    SceneManager.LoadScene(nextSceneName);
+    //}
 
-    public void ViewRetryUI()
-    {
-        isRetry = true;
-        retryCanvas.SetActive(true);
-        clearUI.SetActive(false);
-        retryUI.SetActive(true);
-    }
+    //public void ViewRetryUI()
+    //{
+    //    isRetry = true;
+    //    retryCanvas.SetActive(true);
+    //    clearUI.SetActive(false);
+    //    retryUI.SetActive(true);
+    //}
 
-    public void ViewClearUI()
-    {
-        retryCanvas.SetActive(true);
-        retryUI.SetActive(false);
-        clearUI.SetActive(true);
-    }
+    //public void ViewClearUI()
+    //{
+    //    retryCanvas.SetActive(true);
+    //    retryUI.SetActive(false);
+    //    clearUI.SetActive(true);
+    //}
 }
