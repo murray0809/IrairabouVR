@@ -7,7 +7,7 @@ public class StickController : MonoBehaviour
     [SerializeField] GameObject stick;
     [SerializeField] GameObject rightController;
 
-    [SerializeField] RetryController retryController;
+    //[SerializeField] RetryController retryController;
 
     [SerializeField] GoalController goalController;
 
@@ -15,11 +15,11 @@ public class StickController : MonoBehaviour
     {
         Ray();
 
-        if (retryController.IsRetry || goalController.IsGool)
+        if (/*retryController.IsRetry ||*/goalController.IsGool)
         {
             stick.SetActive(false);
         }
-        else if(!retryController.IsRetry || !goalController.IsGool)
+        else if(/*!retryController.IsRetry || */!goalController.IsGool)
         {
             stick.SetActive(true);
         }

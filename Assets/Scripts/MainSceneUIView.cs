@@ -12,8 +12,10 @@ public class MainSceneUIView : MonoBehaviour
     [SerializeField] GameObject retryButton;
     [SerializeField] GameObject registButton;
 
+    [SerializeField] OVRScreenFade fade;
+
     const string titleScene = "Title";
-    const string mainScene = "";
+    const string mainScene = "MainScene";
     const string rankingScene = "";
 
     void Start()
@@ -24,15 +26,15 @@ public class MainSceneUIView : MonoBehaviour
         ui.SetActive(false);
     }
 
-    void DisplayClearUI()
+    public void DisplayClearUI()
     {
         ui.SetActive(true);
-        uiText.text = "Clear\n" + "0.00";
+        uiText.text = "Clear\n" + FindObjectOfType<TimeCounter>().timer.CountTime.ToString("0.00");
         startButton.SetActive(true);
         registButton.SetActive(true);
     }
 
-    void DisplayMissUI()
+    public void DisplayMissUI()
     {
         ui.SetActive(true);
         uiText.text = "Miss";
@@ -42,16 +44,23 @@ public class MainSceneUIView : MonoBehaviour
 
     void PushStartButton()
     {
-        SceneManager.LoadScene(titleScene);
+        StartCoroutine(MoveScene(titleScene));
     }
 
     void PushRetryButton()
     {
-        SceneManager.LoadScene(mainScene);
+        StartCoroutine(MoveScene(mainScene));
     }
 
     void PushRankingButton()
     {
-        SceneManager.LoadScene(rankingScene);
+        StartCoroutine(MoveScene(rankingScene));
+    }
+
+    IEnumerator MoveScene(string sceneName)
+    {
+        yield return new WaitForSeconds(fade.fadeTime);
+
+        SceneManager.LoadScene(sceneName);
     }
 }

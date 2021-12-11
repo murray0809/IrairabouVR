@@ -8,9 +8,11 @@ public class StickCollision : MonoBehaviour
 
     [SerializeField] StartController start;
 
-    [SerializeField] RetryController retryController;
+    //[SerializeField] RetryController retryController;
 
     [SerializeField] float viveTime;
+
+    [SerializeField] MainSceneUIView mainSceneUIView;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -39,7 +41,7 @@ public class StickCollision : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        retryController.ViewRetryUI();
+        mainSceneUIView.DisplayMissUI();
     }
 
 }
