@@ -1,36 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
+/// <summary>
+/// ƒMƒ~ƒbƒN‚ğ“®‚©‚·ˆ×‚ÌƒNƒ‰ƒX
+/// </summary>
 public class GimmickController : MonoBehaviour
 {
     /// <summary> ‰ñ“]‚³‚¹‚é‚½‚ß‚Ì’l‚Ì•Ï” </summary>
     [Header("‰ñ“]‚³‚¹‚é‚½‚ß‚Ì’l")]
     [SerializeField] private Vector3 rotationVec;
-    /// <summary> U•‚·‚é‘¬‚³‚Ì•Ï” </summary>
-    [Header("U•‚·‚é‘¬‚³")]
-    [SerializeField] private float AmplitudeSpeed;
-    /// <summary> X²•ûŒü‚ÉˆÚ“®‚·‚éU•‚Ì•Ï” </summary>
-    [Header("X²•ûŒü‚ÉˆÚ“®‚·‚éU•")]
-    [SerializeField] private float AmplitudeX;
-    /// <summary> Y²•ûŒü‚ÉˆÚ“®‚·‚éU•‚Ì•Ï” </summary>
-    [Header("Y²•ûŒü‚ÉˆÚ“®‚·‚éU•")]
-    [SerializeField] private float AmplitudeY;
-    /// <summary> Z²•ûŒü‚ÉˆÚ“®‚·‚éU•‚Ì•Ï” </summary>
-    [Header("Z²•ûŒü‚ÉˆÚ“®‚·‚éU•")]
-    [SerializeField] private float AmplitudeZ;
+    /// <summary> w’è‚µ‚½’l‚ğ‰ñ“]‚³‚¹‚éŠÔ‚Ì•Ï” </summary>
+    [Header("w’è‚µ‚½’l‚ğ‰ñ“]‚³‚¹‚éŠÔ")]
+    [SerializeField] private float RotationTime;
+    /// <summary> Å‰‚ÉˆÚ“®‚·‚é•Ï” </summary>
+    [Header("Å‰‚ÉˆÚ“®‚·‚é’l")]
+    [SerializeField] private float StartMove;
+    /// <summary> ÅŒã‚ÉˆÚ“®‚·‚é•Ï” </summary>
+    [Header("ÅŒã‚ÉˆÚ“®‚·‚é’l")]
+    [SerializeField] private float EndMove;
+    /// <summary> U•‚·‚éŠÔ‚Ì•Ï” </summary>
+    [Header("U•‚·‚éŠÔ")]
+    [SerializeField] private float AmplitudeSpeedTime;
+    /// <summary> ’x‰„ŠÔ‚Ì•Ï” </summary>
+    [Header("U•‚ğ’x‰„‚³‚¹‚éŠÔ")]
+    [SerializeField] private float DelayTime;
     /// <summary> ‰ñ“]‚³‚¹‚é‚©‚Ìƒtƒ‰ƒO‚Ì•Ï” </summary>
     [Header("‰ñ“]‚³‚¹‚é‚©‚Ìƒtƒ‰ƒO")]
     public bool isRotate = false;
     /// <summary> ˆÚ“®‚³‚¹‚é‚©‚Ìƒtƒ‰ƒO‚Ì•Ï” </summary>
     [Header("ˆÚ“®‚³‚¹‚é‚©‚Ìƒtƒ‰ƒO")]
     public bool isMove = false;
+    /// <summary> ˆÚ“®‚³‚¹‚é•ûŒü‚Ìƒtƒ‰ƒO‚Ì•Ï” </summary>
+    [Header("ˆÚ“®•ûŒü('X=0', 'Y=1', 'Z=2')")]
+    public bool[] isMoveDirection;
 
-    private Vector3 startPos;
-
-    private void Start()
+    private void Awake()
     {
-        startPos = transform.position;
+        gameObject.transform.position = gameObject.transform.position;
+
+        if (isMove)
+        {
+            StartCoroutine(GimmickCoroutine());
+        }
     }
 
     private void FixedUpdate()
@@ -38,22 +51,68 @@ public class GimmickController : MonoBehaviour
         if (isRotate)
         {
             //‰ñ“]
-            transform.Rotate(new Vector3(rotationVec.x, rotationVec.y, rotationVec.z));
+            DOTween.Sequence()
+                .Append(gameObject.transform.DORotate(new Vector3(rotationVec.x, rotationVec.y, rotationVec.z),
+                        RotationTime, RotateMode.WorldAxisAdd))
+                .SetLoops(-1, LoopType.Yoyo)
+                .Play();
         }
+    }
 
-        if (isMove)
-        {
-            GimmickMove();
-        }
+    IEnumerator GimmickCoroutine()
+    {
+        GimmickMove();
+        yield return null;
     }
 
     /// <summary>
     /// ˆÚ“®‚·‚éŠÖ”
     /// </summary>
-    private void GimmickMove()
+    void GimmickMove()
     {
-        transform.position = new Vector3((Mathf.Sin((Time.time) * AmplitudeSpeed) * AmplitudeX + startPos.x), 
-                                         (Mathf.Sin((Time.time) * AmplitudeSpeed) * AmplitudeY + startPos.y), 
-                                         (Mathf.Sin((Time.time) * AmplitudeSpeed) * AmplitudeZ + startPos.z));
+        //X
+        if (isMoveDirection[0] == true)
+        {
+            DOTween.Sequence()
+            .Append(gameObject.transform.DOMoveX(StartMove, AmplitudeSpeedTime)
+            .SetDelay(DelayTime)
+            .SetEase(Ease.Linear))
+            .SetLoops(-1, LoopType.Yoyo)
+            .Append(gameObject.transform.DOMoveX(EndMove, AmplitudeSpeedTime)
+            .SetDelay(DelayTime)
+            .SetEase(Ease.Linear))
+            .SetLoops(-1, LoopType.Yoyo)
+            .Play();
+        }
+
+        //Y
+        if (isMoveDirection[1] == true)
+        {
+            DOTween.Sequence()
+            .Append(gameObject.transform.DOMoveY(StartMove, AmplitudeSpeedTime)
+            .SetDelay(DelayTime)
+            .SetEase(Ease.Linear))
+            .SetLoops(-1, LoopType.Yoyo)
+            .Append(gameObject.transform.DOMoveY(EndMove, AmplitudeSpeedTime)
+            .SetDelay(DelayTime)
+            .SetEase(Ease.Linear))
+            .SetLoops(-1, LoopType.Yoyo)
+            .Play();
+        }
+
+        //Z
+        if (isMoveDirection[2] == true)
+        {
+            DOTween.Sequence()
+            .Append(gameObject.transform.DOMoveZ(StartMove, AmplitudeSpeedTime)
+            .SetDelay(DelayTime)
+            .SetEase(Ease.Linear))
+            .SetLoops(-1, LoopType.Yoyo)
+            .Append(gameObject.transform.DOMoveZ(EndMove, AmplitudeSpeedTime)
+            .SetDelay(DelayTime)
+            .SetEase(Ease.Linear))
+            .SetLoops(-1, LoopType.Yoyo)
+            .Play();
+        }
     }
 }

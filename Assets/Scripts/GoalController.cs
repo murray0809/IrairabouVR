@@ -10,28 +10,30 @@ public class GoalController : MonoBehaviour
 
     [SerializeField] StartController start;
 
-    [SerializeField] RetryController retryController;
+    //[SerializeField] RetryController retryController;
 
-    [SerializeField] Button registButton;
+    //[SerializeField] Button registButton;
 
-    [SerializeField] Button cancelButton;
+    //[SerializeField] Button cancelButton;
 
-    [SerializeField] string nextSceneName;
+    //[SerializeField] string nextSceneName;
 
-    [SerializeField] Text clearText;
+    //[SerializeField] Text clearText;
+
+    [SerializeField] MainSceneUIView mainSceneUIView;
 
     private bool isGool = false;
     public bool IsGool { get { return isGool; } }
 
-    const string titleScene = "Title";
+    //const string titleScene = "Title";
 
     [SerializeField] OVRScreenFade fade;
 
     void Start()
     {
         GoalPos();
-        registButton.onClick.AddListener(OnPushRegistButton);
-        cancelButton.onClick.AddListener(OnPushCancelButton);
+        //registButton.onClick.AddListener(OnPushRegistButton);
+        //cancelButton.onClick.AddListener(OnPushCancelButton);
     }
 
     void GoalPos()
@@ -45,39 +47,29 @@ public class GoalController : MonoBehaviour
         {
             isGool = true;
             goalPos.GetComponent<Renderer>().material.color = Color.green;
-            retryController.ViewClearUI();
+            //retryController.ViewClearUI();
+            mainSceneUIView.DisplayClearUI();
             FindObjectOfType<TimeCounter>().StopTimer();
-            RegisterUserTime(Timer.CountTime);
-
-            clearText.text = "Clear\n" + Timer.CountTime.ToString("0.00");
+            //clearText.text = "Clear\n" + FindObjectOfType<TimeCounter>().timer.CountTime.ToString("0.00");
         }
     }
 
+    //void OnPushRegistButton()
+    //{
+    //    SceneManager.LoadScene(nextSceneName);
+    //}
 
-    private void RegisterUserTime(float time)
-    {
-        var userdatas = UserDatas.Instans;
-        userdatas.Load();
+    //void OnPushCancelButton()
+    //{
+    //    fade.FadeOut();
 
-        userdatas.AddUserData(new UserData("",time));
-        userdatas.Save();
-    }
-    void OnPushRegistButton()
-    {
-        SceneManager.LoadScene(nextSceneName);
-    }
+    //    StartCoroutine(MoveTitleScene());
+    //}
 
-    void OnPushCancelButton()
-    {
-        fade.FadeOut();
+    //IEnumerator MoveTitleScene()
+    //{
+    //    yield return new WaitForSeconds(fade.fadeTime);
 
-        StartCoroutine(MoveTitleScene());
-    }
-
-    IEnumerator MoveTitleScene()
-    {
-        yield return new WaitForSeconds(fade.fadeTime);
-
-        SceneManager.LoadScene(titleScene);
-    }
+    //    SceneManager.LoadScene(titleScene);
+    //}
 }

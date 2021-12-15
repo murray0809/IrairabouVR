@@ -12,7 +12,7 @@ public class TitleSceneViewModel
     Subject<string> sceneMove = new Subject<string>();
     public IObservable<string> SceneMove => sceneMove;
 
-    const string mainScene = "ProtoType";
+    const string mainScene = "MainScene";
 
     public TitleSceneViewModel()
     {
