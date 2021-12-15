@@ -47,10 +47,21 @@ public class GoalController : MonoBehaviour
             goalPos.GetComponent<Renderer>().material.color = Color.green;
             retryController.ViewClearUI();
             FindObjectOfType<TimeCounter>().StopTimer();
+            RegisterUserTime(Timer.CountTime);
+
             clearText.text = "Clear\n" + Timer.CountTime.ToString("0.00");
         }
     }
 
+
+    private void RegisterUserTime(float time)
+    {
+        var userdatas = UserDatas.Instans;
+        userdatas.Load();
+
+        userdatas.AddUserData(new UserData("",time));
+        userdatas.Save();
+    }
     void OnPushRegistButton()
     {
         SceneManager.LoadScene(nextSceneName);

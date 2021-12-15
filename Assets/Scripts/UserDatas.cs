@@ -9,24 +9,36 @@ public class UserDatas : BaseSerializeClass<UserDatas>
 {
     [SerializeField] List<UserData> userDatas;
 
-    
-
+    List<UserData> UserDataList
+    {
+        get
+        {
+            if (userDatas == null)
+            {
+                userDatas = new List<UserData>();
+            }
+            return userDatas;
+        } 
+    } 
+       
+    /*
     public UserDatas()
     {
         Init();
     }
+    */
 
     public void AddUserData(UserData data)
     {
-        userDatas.Add(data);        
+        UserDataList.Add(data);        
     }
 
     public void RemoveUserData(UserData data)
     {
-        userDatas.Remove(data);
+        UserDataList.Remove(data);
     }
 
-    public List<UserData> GetAllUserData => userDatas;
+    public List<UserData> GetAllUserData => UserDataList;
 
 
     /// <summary>
@@ -52,12 +64,13 @@ public class UserDatas : BaseSerializeClass<UserDatas>
     {
         return userDatas.Where(data => data.userName == name).OrderBy(sldata => sldata.clearTime).Take(limit).ToList();
     }
-
+    /*
     void Init()
     {
         userDatas = new List<UserData>();
         Load();
     }
+    */
     public new void Save()
     {
         base.Save();
