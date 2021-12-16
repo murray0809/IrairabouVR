@@ -57,7 +57,7 @@ public class Timer
     }
 
     /// <summary>
-    /// タイマーをリセットする
+    /// ?^?C?}?[?????Z?b?g????
     /// </summary>
     public void Reset()
     {
