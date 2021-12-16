@@ -37,6 +37,7 @@ abstract public class BaseSerializeClass<T> where T : new()
         {
             writer.Write(json);
             writer.Flush();
+            Debug.Log("Save:"+ json);
         }
     }
 
@@ -48,13 +49,12 @@ abstract public class BaseSerializeClass<T> where T : new()
             {
                 var json = reader.ReadToEnd();
                 _instans = JsonUtility.FromJson<T>(json);
+                Debug.Log($"Load:{json}");
             }
         }
         catch (FileNotFoundException e)
         {
-
             Debug.LogError("notfindfile:errormessage:" + e.Message);
-            _instans = new T();
         }
     }
 }

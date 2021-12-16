@@ -50,6 +50,7 @@ public class GoalController : MonoBehaviour
             //retryController.ViewClearUI();
             mainSceneUIView.DisplayClearUI();
             FindObjectOfType<TimeCounter>().StopTimer();
+            UserDatas.Instans.AddUserData(new UserData("noname", Timer.CountTime));
             //clearText.text = "Clear\n" + FindObjectOfType<TimeCounter>().timer.CountTime.ToString("0.00");
         }
     }

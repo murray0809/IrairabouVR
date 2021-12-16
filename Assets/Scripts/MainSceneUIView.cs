@@ -29,7 +29,7 @@ public class MainSceneUIView : MonoBehaviour
     public void DisplayClearUI()
     {
         ui.SetActive(true);
-        uiText.text = "Clear\n" + FindObjectOfType<TimeCounter>().timer.CountTime.ToString("0.00");
+        uiText.text = "Clear\n" + Timer.CountTime.ToString("0.00");
         startButton.SetActive(true);
         registButton.SetActive(true);
     }
