@@ -11,15 +11,17 @@ public class StickController : MonoBehaviour
 
     [SerializeField] GoalController goalController;
 
+    [SerializeField] StickCollision stickCollision;
+
     void Update()
     {
         Ray();
 
-        if (/*retryController.IsRetry ||*/goalController.IsGool)
+        if (goalController.IsGool)
         {
             stick.SetActive(false);
         }
-        else if(/*!retryController.IsRetry || */!goalController.IsGool)
+        else if(!goalController.IsGool)
         {
             stick.SetActive(true);
         }

@@ -23,7 +23,22 @@ public class MainSceneUIView : MonoBehaviour
         startButton.GetComponent<Button>().onClick.AddListener(PushStartButton);
         retryButton.GetComponent<Button>().onClick.AddListener(PushRetryButton);
         registButton.GetComponent<Button>().onClick.AddListener(PushRankingButton);
+        startButton.SetActive(false);
+        registButton.SetActive(false);
+        retryButton.SetActive(false);
         ui.SetActive(false);
+
+       
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            DisplayMissUI();
+            PushRetryButton();
+            Debug.Log("test");
+        }
     }
 
     public void DisplayClearUI()
@@ -44,11 +59,13 @@ public class MainSceneUIView : MonoBehaviour
 
     void PushStartButton()
     {
+        fade.FadeOut();
         StartCoroutine(MoveScene(titleScene));
     }
 
     void PushRetryButton()
     {
+        fade.FadeOut();
         StartCoroutine(MoveScene(mainScene));
     }
 
