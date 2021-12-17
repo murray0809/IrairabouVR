@@ -15,6 +15,7 @@ public class StartController : MonoBehaviour
     void Start()
     {
         StartPos();
+        started = false;
     }
 
     void StartPos()

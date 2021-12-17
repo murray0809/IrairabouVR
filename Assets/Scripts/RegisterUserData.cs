@@ -12,15 +12,15 @@ public class RegisterUserData : MonoBehaviour
     void Start()
     {
         UserDatas.Instans.Load();
-        registerButton.onClick.AddListener(() => AddUserData(CreateUserData(userNameInput.text, Timer.CountTime)));
+        registerButton.onClick.AddListener(() => AddUserData(CreateUserData("Test", Timer.CountTime)));
     }
 
     private void Update()
     {
-        if (userNameInput.isFocused)
-        {
-           overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.ASCIICapable);
-        }
+        //if (userNameInput.isFocused)
+        //{
+        //   overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.ASCIICapable);
+        //}
     }
 
     void AddUserData(UserData newUser)
