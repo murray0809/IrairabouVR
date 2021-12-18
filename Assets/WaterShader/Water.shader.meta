@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 63ef77c0772e0104e9add5cfd32ecdbc
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _WaveTex1: {fileID: 2800000, guid: f1ab8937574a84b479bf75768fb1e908, type: 3}
+  - _WaveTex2: {fileID: 2800000, guid: d8cd20a1c53f9ed45b093cf2a4e017fb, type: 3}
+  - _WaveTex1H: {fileID: 2800000, guid: 6293e17e90082ac4aaf704f4bc73539f, type: 3}
+  - _WaveTex2H: {fileID: 2800000, guid: 15f4f8f49ba170a40a06c2af7f2a84d9, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
