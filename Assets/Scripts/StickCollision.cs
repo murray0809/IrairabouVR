@@ -44,7 +44,7 @@ public class StickCollision : MonoBehaviour
         {
             //stick.GetComponent<Renderer>().material.color = Color.red;
 
-            Instantiate(effect, this.transform.position, Quaternion.identity);
+            //Instantiate(effect, this.transform.position, Quaternion.identity);
 
             StartCoroutine(Vivration(viveTime));
 
