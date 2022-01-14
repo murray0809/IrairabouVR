@@ -29,6 +29,14 @@ public class MainSceneUIView : MonoBehaviour
         ui.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            StartCoroutine(MoveScene(mainScene));
+        }
+    }
+
     public void DisplayClearUI()
     {
         ui.SetActive(true);

@@ -1779,7 +1779,8 @@ MonoBehaviour:
   viveTime: 2
   mainSceneUIView: {fileID: 1191093563}
   stickMaterial: {fileID: 2100000, guid: bd358aecab26a4b4e900a94b73a8de6e, type: 2}
-  effect: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
+  effect: {fileID: 2054957242128263940, guid: 82211e2b3f02240f2a3cbed88140f23f, type: 3}
+  stage: {fileID: 2140951348}
 --- !u!136 &1684226891
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2121,3 +2122,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ded2851f46b347c0af356036482950d, type: 3}
+--- !u!1 &2140951346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2476190909518187266, guid: 8413b02f6ed5fa646a1bdd95a5bc1994, type: 3}
+  m_PrefabInstance: {fileID: 464452251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140951348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140951346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38e5ff0b1c344b44be5437cb04bc51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

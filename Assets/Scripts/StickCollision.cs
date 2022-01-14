@@ -23,6 +23,8 @@ public class StickCollision : MonoBehaviour
 
     [SerializeField] GameObject effect;
 
+    [SerializeField] StageController stage;
+
     void Update()
     {
         if (OVRInput.Get(OVRInput.RawButton.A))
@@ -36,6 +38,11 @@ public class StickCollision : MonoBehaviour
             debug = false;
             stick.GetComponent<Renderer>().material = stickMaterial;
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            stage.MoveStop();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -44,7 +51,9 @@ public class StickCollision : MonoBehaviour
         {
             //stick.GetComponent<Renderer>().material.color = Color.red;
 
-            //Instantiate(effect, this.transform.position, Quaternion.identity);
+            stage.MoveStop();
+
+            Instantiate(effect, this.transform.position, Quaternion.identity);
 
             StartCoroutine(Vivration(viveTime));
 
