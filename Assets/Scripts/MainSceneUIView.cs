@@ -27,17 +27,13 @@ public class MainSceneUIView : MonoBehaviour
         registButton.SetActive(false);
         retryButton.SetActive(false);
         ui.SetActive(false);
-
-       
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
-            DisplayMissUI();
-            PushRetryButton();
-            Debug.Log("test");
+            StartCoroutine(MoveScene(mainScene));
         }
     }
 
@@ -78,6 +74,6 @@ public class MainSceneUIView : MonoBehaviour
     {
         yield return new WaitForSeconds(fade.fadeTime);
 
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadSceneAsync(sceneName);
     }
 }
