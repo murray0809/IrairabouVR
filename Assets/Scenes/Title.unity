@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -298,7 +298,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 511f7036ee60b44bb97a3e9bbd6118d4, type: 3}
+    m_Font: {fileID: 12800000, guid: aa7b8c96dde35cb478f70b46de86ac48, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   - {fileID: 1305449081}
   - {fileID: 590409855}
   timeFrontText: ClearTime
-  timeFormat: 0:00.00
+  timeFormat: '%m\:ss\.ff'
 --- !u!1 &542713083
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 511f7036ee60b44bb97a3e9bbd6118d4, type: 3}
+    m_Font: {fileID: 12800000, guid: aa7b8c96dde35cb478f70b46de86ac48, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 511f7036ee60b44bb97a3e9bbd6118d4, type: 3}
+    m_Font: {fileID: 12800000, guid: aa7b8c96dde35cb478f70b46de86ac48, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
@@ -1186,7 +1186,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 511f7036ee60b44bb97a3e9bbd6118d4, type: 3}
+    m_Font: {fileID: 12800000, guid: aa7b8c96dde35cb478f70b46de86ac48, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
@@ -1675,7 +1675,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 511f7036ee60b44bb97a3e9bbd6118d4, type: 3}
+    m_Font: {fileID: 12800000, guid: aa7b8c96dde35cb478f70b46de86ac48, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
@@ -2155,7 +2155,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 511f7036ee60b44bb97a3e9bbd6118d4, type: 3}
+    m_Font: {fileID: 12800000, guid: aa7b8c96dde35cb478f70b46de86ac48, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
