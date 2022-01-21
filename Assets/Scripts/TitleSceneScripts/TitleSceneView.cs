@@ -10,6 +10,8 @@ public class TitleSceneView : MonoBehaviour
     [SerializeField] Button startButton;
     //[SerializeField] Button rankingButton;
 
+    [SerializeField] OVRScreenFade fade;
+
     TitleSceneViewModel viewModel;
 
     public void Initialize(TitleSceneViewModel viewModel)
@@ -20,8 +22,25 @@ public class TitleSceneView : MonoBehaviour
 
         viewModel.SceneMove.Subscribe(value =>
         {
-            SceneManager.LoadScene(value);
+            //fade.FadeOut();
+            //SceneManager.LoadScene(value);
+            StartCoroutine(MoveScene(value));
         }).AddTo(this);
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            StartCoroutine(MoveScene("MainScene"));
+        }
+    }
+
+    IEnumerator MoveScene(string sceneName)
+    {
+        yield return new WaitForSeconds(fade.fadeTime);
+
+        SceneManager.LoadSceneAsync(sceneName);
     }
 
     public void OnClickStartButton()

@@ -34,7 +34,7 @@ public class RankingView : MonoBehaviour
         for (int i = 0; i < creatimes.Count; i++)
         {
             var time = new TimeSpan(0, 0, (int)creatimes[i].clearTime);
-            rankingTexts[i].text = rankingString[i] + " " + timeFrontText + " " + time.ToString(timeFormat);
+            rankingTexts[i].text = rankingString[i] + ":" + time.ToString(timeFormat);
         }
     }
 }

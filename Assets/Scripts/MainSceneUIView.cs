@@ -33,7 +33,7 @@ public class MainSceneUIView : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            StartCoroutine(MoveScene(mainScene));
+            StartCoroutine(MoveScene(titleScene));
         }
     }
 

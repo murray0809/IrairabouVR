@@ -22,6 +22,10 @@ public class GoalController : MonoBehaviour
 
     [SerializeField] MainSceneUIView mainSceneUIView;
 
+    [SerializeField] AudioClip goalSound;
+
+    AudioSource audioSource;
+
     private bool isGool = false;
     public bool IsGool { get { return isGool; } }
 
@@ -34,6 +38,7 @@ public class GoalController : MonoBehaviour
         GoalPos();
         //registButton.onClick.AddListener(OnPushRegistButton);
         //cancelButton.onClick.AddListener(OnPushCancelButton);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void GoalPos()
@@ -52,6 +57,8 @@ public class GoalController : MonoBehaviour
             FindObjectOfType<TimeCounter>().StopTimer();
             UserDatas.Instans.AddUserData(new UserData("noname", Timer.CountTime));
             //clearText.text = "Clear\n" + FindObjectOfType<TimeCounter>().timer.CountTime.ToString("0.00");
+            FindObjectOfType<BGMController>().StopBGM();
+            audioSource.PlayOneShot(goalSound);
         }
     }
 
