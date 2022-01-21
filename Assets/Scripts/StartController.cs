@@ -12,10 +12,15 @@ public class StartController : MonoBehaviour
     private bool started = false;
     public bool Started { get { return started; } }
 
+    [SerializeField] AudioClip startSound;
+
+    AudioSource audioSource;
+
     void Start()
     {
         StartPos();
         started = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void StartPos()
@@ -32,9 +37,11 @@ public class StartController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Stick" && stickPosY > stick.transform.position.y)
         {
+            audioSource.PlayOneShot(startSound);
             startPos.GetComponent<Renderer>().material.color = Color.green;
             started = true;
             FindObjectOfType<TimeCounter>().StartTimer();
+            FindObjectOfType<BGMController>().StartBGM2();
         }
     }
 }

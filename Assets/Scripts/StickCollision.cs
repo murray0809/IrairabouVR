@@ -25,6 +25,15 @@ public class StickCollision : MonoBehaviour
 
     [SerializeField] StageController stage;
 
+    [SerializeField] AudioClip effectSound;
+
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (OVRInput.Get(OVRInput.RawButton.A))
@@ -60,6 +69,10 @@ public class StickCollision : MonoBehaviour
             StartCoroutine(ViewUI(2f));
 
             FindObjectOfType<TimeCounter>().StopTimer();
+
+            FindObjectOfType<BGMController>().StopBGM();
+
+            audioSource.PlayOneShot(effectSound);
         }
     }
 
