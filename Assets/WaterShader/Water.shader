@@ -11,7 +11,7 @@ Shader "Unlit/Water"
 		_FlowSpeed("Flow Speed"  , Vector) = (0, 0, 0, 0)
 		_Refraction("Refraction"  , Vector) = (0, 0, 0, 0)
 		_Displace("Displace"    , Vector) = (0, 0, 0, 0)
-		_EdgeLength("Edge length" , Range(3,50)) = 10
+		_EdgeLength("Edge length" , Range(1,50)) = 10
 	}
 
 	SubShader{
@@ -24,7 +24,7 @@ Shader "Unlit/Water"
 
 		CGPROGRAM
 			#pragma target 5.0
-			#pragma surface surf Standard vertex:disp tessellate:tessEdge
+			#pragma surface surf Standard vertex:disp
 			#include "Tessellation.cginc"
 
 			sampler2D _GrabTexture;
