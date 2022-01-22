@@ -30,7 +30,8 @@ public class UserDatas : BaseSerializeClass<UserDatas>
 
     public void AddUserData(UserData data)
     {
-        UserDataList.Add(data);        
+        Instans.UserDataList.Add(data);
+        Instans.Save();
     }
 
     public void RemoveUserData(UserData data)
@@ -42,9 +43,9 @@ public class UserDatas : BaseSerializeClass<UserDatas>
 
 
     /// <summary>
-    /// Å‚‹L˜^‚ğ•Ô‹p‚·‚é
+    /// ï¿½Åï¿½ï¿½Lï¿½^ï¿½ï¿½Ô‹pï¿½ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="name">ƒ†[ƒU[–¼</param>
+    /// <param name="name">ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½</param>
     /// <returns></returns>
     public UserData GetUserData(string name)
     {

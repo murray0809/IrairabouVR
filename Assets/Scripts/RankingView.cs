@@ -21,8 +21,7 @@ public class RankingView : MonoBehaviour
 
     private void OnRankingPanel()
     {
-        userdatas = UserDatas.Instans;
-        userdatas.Load();
+        UserDatas.Instans.Load();
 
         var creatimes = UserDatas.Instans.GetAllUserData;
         creatimes = creatimes.OrderByDescending(user => user.clearTime).ToList();
