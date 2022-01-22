@@ -25,14 +25,17 @@ public class RankingView : MonoBehaviour
 
         var creatimes = UserDatas.Instans.GetAllUserData;
         creatimes = creatimes.OrderByDescending(user => user.clearTime).ToList();
-        
+
+        creatimes.Reverse();
 
         //rankingTexts = GetComponentsInChildren<Text>();
         Debug.Log(creatimes.Count);
 
         for (int i = 0; i < creatimes.Count; i++)
         {
-            var time = new TimeSpan(0, 0, (int)creatimes[i].clearTime);
+            var floaten = (creatimes[i].clearTime - (int)creatimes[i].clearTime) * 1000;
+            Debug.Log(floaten);
+            var time = new TimeSpan(0, 0, 0, (int)creatimes[i].clearTime, (int)floaten);
             rankingTexts[i].text = rankingString[i] + ":" + time.ToString(timeFormat);
         }
     }

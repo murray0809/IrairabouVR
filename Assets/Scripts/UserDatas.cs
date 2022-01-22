@@ -72,6 +72,7 @@ public class UserDatas : BaseSerializeClass<UserDatas>
         Load();
     }
     */
+    /*
     public new void Save()
     {
         base.Save();
@@ -81,7 +82,7 @@ public class UserDatas : BaseSerializeClass<UserDatas>
     {
         base.Load();
     }
-
+*/
     public override string ToString()
     {
         return fileName;
