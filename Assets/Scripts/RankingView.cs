@@ -21,20 +21,22 @@ public class RankingView : MonoBehaviour
 
     private void OnRankingPanel()
     {
-        userdatas = UserDatas.Instans;
-        userdatas.Load();
+        UserDatas.Instans.Load();
 
         var creatimes = UserDatas.Instans.GetAllUserData;
         creatimes = creatimes.OrderByDescending(user => user.clearTime).ToList();
-        
+
+        creatimes.Reverse();
 
         //rankingTexts = GetComponentsInChildren<Text>();
         Debug.Log(creatimes.Count);
 
         for (int i = 0; i < creatimes.Count; i++)
         {
-            var time = new TimeSpan(0, 0, (int)creatimes[i].clearTime);
-            rankingTexts[i].text = rankingString[i] + " " + timeFrontText + " " + time.ToString(timeFormat);
+            var floaten = (creatimes[i].clearTime - (int)creatimes[i].clearTime) * 1000;
+            Debug.Log(floaten);
+            var time = new TimeSpan(0, 0, 0, (int)creatimes[i].clearTime, (int)floaten);
+            rankingTexts[i].text = rankingString[i] + ":" + time.ToString(timeFormat);
         }
     }
 }
