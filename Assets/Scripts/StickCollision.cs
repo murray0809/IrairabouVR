@@ -62,7 +62,7 @@ public class StickCollision : MonoBehaviour
 
             stage.MoveStop();
 
-            Instantiate(effect, this.transform.position, Quaternion.identity);
+            StartCoroutine(EffectOn());
 
             StartCoroutine(Vivration(viveTime));
 
@@ -92,6 +92,19 @@ public class StickCollision : MonoBehaviour
         stick.SetActive(false);
 
         mainSceneUIView.DisplayMissUI();
+    }
+
+    IEnumerator EffectOn()
+    {
+        Instantiate(effect, this.transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Instantiate(effect, this.transform.position, Quaternion.identity);
+
+        //yield return new WaitForSeconds(0.5f);
+
+        //Instantiate(effect, this.transform.position, Quaternion.identity);
     }
 
 }

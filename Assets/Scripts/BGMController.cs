@@ -12,6 +12,7 @@ public class BGMController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        StartBGM1();
     }
 
     public void StartBGM1()

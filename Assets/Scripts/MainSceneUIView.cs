@@ -10,8 +10,7 @@ public class MainSceneUIView : MonoBehaviour
     [SerializeField] Text uiText;
     [SerializeField] GameObject startButton;
     [SerializeField] GameObject retryButton;
-    [SerializeField] GameObject registButton;
-
+    
     [SerializeField] OVRScreenFade fade;
 
     const string titleScene = "Title";
@@ -22,9 +21,7 @@ public class MainSceneUIView : MonoBehaviour
     {
         startButton.GetComponent<Button>().onClick.AddListener(PushStartButton);
         retryButton.GetComponent<Button>().onClick.AddListener(PushRetryButton);
-        registButton.GetComponent<Button>().onClick.AddListener(PushRankingButton);
         startButton.SetActive(false);
-        registButton.SetActive(false);
         retryButton.SetActive(false);
         ui.SetActive(false);
     }
@@ -42,7 +39,6 @@ public class MainSceneUIView : MonoBehaviour
         ui.SetActive(true);
         uiText.text = "Clear\n" + Timer.CountTime.ToString("0.00");
         startButton.SetActive(true);
-        registButton.SetActive(true);
     }
 
     public void DisplayMissUI()
