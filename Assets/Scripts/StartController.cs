@@ -41,6 +41,7 @@ public class StartController : MonoBehaviour
             startPos.GetComponent<Renderer>().material.color = Color.green;
             started = true;
             FindObjectOfType<TimeCounter>().StartTimer();
+            FindObjectOfType<BGMController>().StopBGM();
             FindObjectOfType<BGMController>().StartBGM2();
         }
     }
