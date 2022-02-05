@@ -8,8 +8,6 @@ public class StickCollision : MonoBehaviour
 
     [SerializeField] StartController start;
 
-    //[SerializeField] RetryController retryController;
-
     [SerializeField] float viveTime;
 
     [SerializeField] MainSceneUIView mainSceneUIView;
@@ -58,8 +56,6 @@ public class StickCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall" && start.Started && !debug)
         {
-            //stick.GetComponent<Renderer>().material.color = Color.red;
-
             stage.MoveStop();
 
             StartCoroutine(EffectOn());
@@ -101,10 +97,6 @@ public class StickCollision : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         Instantiate(effect, this.transform.position, Quaternion.identity);
-
-        //yield return new WaitForSeconds(0.5f);
-
-        //Instantiate(effect, this.transform.position, Quaternion.identity);
     }
 
 }

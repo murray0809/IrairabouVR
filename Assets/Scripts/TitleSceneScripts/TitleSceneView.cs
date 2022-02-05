@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class TitleSceneView : MonoBehaviour
 {
     [SerializeField] Button startButton;
-    //[SerializeField] Button rankingButton;
 
     [SerializeField] OVRScreenFade fade;
 
@@ -18,7 +17,6 @@ public class TitleSceneView : MonoBehaviour
     {
         this.viewModel = viewModel;
         startButton.onClick.AddListener(OnClickStartButton);
-        //rankingButton.onClick.AddListener(OnClickKillNumberButton);
 
         viewModel.SceneMove.Subscribe(value =>
         {

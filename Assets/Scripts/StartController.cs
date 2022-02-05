@@ -5,6 +5,7 @@ using UnityEngine;
 public class StartController : MonoBehaviour
 {
     [SerializeField] GameObject startPos;
+
     [SerializeField] GameObject stick;
 
     private float stickPosY;
@@ -19,7 +20,9 @@ public class StartController : MonoBehaviour
     void Start()
     {
         StartPos();
+
         started = false;
+
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -38,10 +41,15 @@ public class StartController : MonoBehaviour
         if (collision.gameObject.tag == "Stick" && stickPosY > stick.transform.position.y)
         {
             audioSource.PlayOneShot(startSound);
+
             startPos.GetComponent<Renderer>().material.color = Color.green;
+
             started = true;
+
             FindObjectOfType<TimeCounter>().StartTimer();
+
             FindObjectOfType<BGMController>().StopBGM();
+
             FindObjectOfType<BGMController>().StartBGM2();
         }
     }
