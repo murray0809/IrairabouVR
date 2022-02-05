@@ -5,13 +5,10 @@ using UnityEngine;
 public class StickController : MonoBehaviour
 {
     [SerializeField] GameObject stick;
+
     [SerializeField] GameObject rightController;
 
-    //[SerializeField] RetryController retryController;
-
     [SerializeField] GoalController goalController;
-
-    [SerializeField] StickCollision stickCollision;
 
     void Update()
     {
