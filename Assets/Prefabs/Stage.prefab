@@ -7780,7 +7780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVec: {x: 0, y: 0, z: 360}
-  RotationTime: 40
+  RotationTime: 50
   StartMove: 0
   EndMove: 0
   AmplitudeSpeedTime: 0
@@ -30291,7 +30291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVec: {x: 0, y: 0, z: 360}
-  RotationTime: 30
+  RotationTime: 50
   StartMove: 0
   EndMove: 0
   AmplitudeSpeedTime: 0
