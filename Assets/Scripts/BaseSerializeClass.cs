@@ -28,6 +28,11 @@ abstract public class BaseSerializeClass<T> where T : new()
         }
     }
 
+    private void NoDataAction()
+    {
+        _instans = new T();   
+    }
+
     
 
     public void Save()
@@ -43,12 +48,12 @@ abstract public class BaseSerializeClass<T> where T : new()
 
     public void Load()
     {
+        var json = "";
         try
         {
             using (var reader = new StreamReader(filePass))
             {
-                var json = reader.ReadToEnd();
-                _instans = JsonUtility.FromJson<T>(json);
+                json = reader.ReadToEnd();
                 Debug.Log($"Load:{json}");
             }
         }
@@ -56,5 +61,46 @@ abstract public class BaseSerializeClass<T> where T : new()
         {
             Debug.LogError("notfindfile:errormessage:" + e.Message);
         }
+
+        if (string.IsNullOrEmpty(json))
+        {
+            Debug.LogError("Nodata");
+            NoDataAction();
+            return;
+        }
+
+        _instans = JsonUtility.FromJson<T>(json);
+    }
+
+    public void ClearAllData()
+    {
+        var json = "";
+        try
+        {
+            using (var reader = new StreamReader(filePass))
+            {
+                json = reader.ReadToEnd();
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+            Debug.LogError("notfindfile:errormessage:" + e.Message);
+        }
+
+        if (string.IsNullOrEmpty(json))
+        {
+            Debug.LogWarning("NoData");
+            return;
+        }
+
+
+        using (var writer = new StreamWriter(filePass, append: false))
+        {
+            writer.Write("");
+            writer.Flush();
+            Debug.Log("Clear");
+        }
+
+        _instans = new T();
     }
 }

@@ -9,6 +9,7 @@ public class RankingView : MonoBehaviour
 {
     [SerializeField]Text[] rankingTexts;
     string[] rankingString = { "1st", "2nd", "3rd", "4th", "5th", "6th" };
+    [SerializeField] string defaultText = "";
     [SerializeField] string timeFrontText = "ClearTime";
     [SerializeField] string timeFormat = "0:00.00";
     UserDatas userdatas;
@@ -23,6 +24,8 @@ public class RankingView : MonoBehaviour
     {
         UserDatas.Instans.Load();
 
+        if (UserDatas.Instans.GetAllUserData.Count == 0) return;
+       
         var creatimes = UserDatas.Instans.GetAllUserData;
         creatimes = creatimes.OrderByDescending(user => user.clearTime).ToList();
 
@@ -37,6 +40,14 @@ public class RankingView : MonoBehaviour
             Debug.Log(floaten);
             var time = new TimeSpan(0, 0, 0, (int)creatimes[i].clearTime, (int)floaten);
             rankingTexts[i].text = rankingString[i] + ":" + time.ToString(timeFormat);
+        }
+    }
+
+    public void ClearPanel()
+    {
+        foreach (var text in rankingTexts)
+        {
+            text.text = defaultText;
         }
     }
 }
