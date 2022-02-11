@@ -53,4 +53,9 @@ public class StartController : MonoBehaviour
             FindObjectOfType<BGMController>().StartBGM2();
         }
     }
+
+    public void Finish()
+    {
+        started = false;
+    }
 }

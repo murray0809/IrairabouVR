@@ -525,7 +525,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &4341433582650072247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,7 +559,6 @@ MonoBehaviour:
   uiText: {fileID: 4341433581178329442}
   startButton: {fileID: 4341433581970333199}
   retryButton: {fileID: 4341433580985079997}
-  registButton: {fileID: 0}
   fade: {fileID: 0}
 --- !u!114 &4341433582650072252
 MonoBehaviour:

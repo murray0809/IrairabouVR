@@ -21,15 +21,21 @@ public class StickCollision : MonoBehaviour
 
     [SerializeField] GameObject effect;
 
+    [SerializeField] GameObject effectPostion;
+
     [SerializeField] StageController stage;
 
     [SerializeField] AudioClip effectSound;
+
+    [SerializeField] PointerController pointer;
 
     AudioSource audioSource;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        pointer.LineOff();
     }
 
     void Update()
@@ -56,6 +62,8 @@ public class StickCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall" && start.Started && !debug)
         {
+            start.Finish();
+
             stage.MoveStop();
 
             StartCoroutine(EffectOn());
@@ -87,12 +95,22 @@ public class StickCollision : MonoBehaviour
 
         stick.SetActive(false);
 
+        pointer.LineOn();
+
         mainSceneUIView.DisplayMissUI();
     }
 
     IEnumerator EffectOn()
     {
+        Instantiate(effect, effectPostion.transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(0.5f);
+
         Instantiate(effect, this.transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Instantiate(effect, effectPostion.transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(0.5f);
 
