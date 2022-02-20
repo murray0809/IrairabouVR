@@ -20,7 +20,7 @@ public class TitleSceneView : MonoBehaviour
 
         viewModel.SceneMove.Subscribe(value =>
         {
-            //fade.FadeOut();
+            fade.FadeOut();
             //SceneManager.LoadScene(value);
             StartCoroutine(MoveScene(value));
         }).AddTo(this);

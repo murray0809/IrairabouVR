@@ -32,8 +32,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897361811704845073}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.001, z: 0.46}
-  m_LocalScale: {x: 0.005, y: 0.01, z: 0.005}
+  m_LocalPosition: {x: 0, y: -0.001, z: 0.7}
+  m_LocalScale: {x: 0.004, y: 0.01, z: 0.004}
   m_Children:
   - {fileID: 5400785355812087099}
   m_Father: {fileID: 0}
@@ -128,8 +128,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 5.6776595
-  m_Height: 173.64423
+  m_Radius: 5
+  m_Height: 175.69
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 5.475612}
 --- !u!82 &897361811704819047
@@ -243,6 +243,7 @@ MonoBehaviour:
   stick: {fileID: 897361811704845073}
   rightController: {fileID: 0}
   goalController: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!114 &897361811704819041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +265,7 @@ MonoBehaviour:
   effectPostion: {fileID: 5749974167519926716}
   stage: {fileID: 0}
   effectSound: {fileID: 8300000, guid: e8b65eb6473d84d918f664dbd34a608b, type: 3}
+  pointer: {fileID: 0}
 --- !u!1 &5749974167519926716
 GameObject:
   m_ObjectHideFlags: 0

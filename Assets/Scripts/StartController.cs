@@ -17,6 +17,8 @@ public class StartController : MonoBehaviour
 
     AudioSource audioSource;
 
+    [SerializeField] GameObject mainCamera;
+
     void Start()
     {
         StartPos();
@@ -29,6 +31,18 @@ public class StartController : MonoBehaviour
     void StartPos()
     {
         startPos.GetComponent<Renderer>().material.color = Color.red;
+
+        Transform myTransform = mainCamera.transform;
+
+        Vector3 myPos = myTransform.transform.position;
+
+        myPos.x = 0f;
+
+        myPos.y = 0.8f;
+
+        myPos.z = -2.5f;
+
+        myTransform.transform.position = myPos;
     }
 
     private void OnCollisionEnter(Collision collision)
