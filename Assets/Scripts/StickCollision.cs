@@ -40,22 +40,22 @@ public class StickCollision : MonoBehaviour
 
     void Update()
     {
-        if (OVRInput.Get(OVRInput.RawButton.A))
+        if (OVRInput.Get(OVRInput.RawButton.X))
         {
             debug = true;
             stick.GetComponent<Renderer>().material.color = Color.blue;
         }
 
-        if (OVRInput.GetUp(OVRInput.RawButton.A))
+        if (OVRInput.GetUp(OVRInput.RawButton.X))
         {
             debug = false;
             stick.GetComponent<Renderer>().material = stickMaterial;
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            stage.MoveStop();
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    stage.MoveStop();
+        //}
     }
 
     private void OnCollisionEnter(Collision collision)
